@@ -1,26 +1,139 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #191919;
+  --foreground: #f0f0f0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-bodyFont: var(--font-bodyFont);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-bodyFont);
+}
+
+/* Custom slim scrollbar: 7px wide, transparent track, #282828 thumb */
+* {
+  /* Firefox: approximate slim width (can't set px exactly) */
+  scrollbar-width: thin;
+  /* thumb then track */
+  scrollbar-color: #353535 transparent;
+}
+
+/* WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #353535;
+  border-radius: 99px;
+  border: 0;
+  min-height: 30px;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Override highlight.js styles for consistent code block backgrounds */
+.hljs {
+  background: transparent !important;
+  color: #e6edf3 !important;
+}
+
+pre .hljs {
+  background: transparent !important;
+}
+
+/* Modern dark theme syntax highlighting inspired by GitHub Dark */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section {
+  color: #ff7b72 !important; /* Soft red for keywords */
+}
+
+.hljs-string,
+.hljs-template-literal {
+  color: #a5d6ff !important; /* Light blue for strings */
+}
+
+.hljs-title.class_,
+.hljs-class .hljs-title,
+.hljs-type,
+.hljs-built_in {
+  color: #ffa657 !important; /* Orange for classes and types */
+}
+
+.hljs-function,
+.hljs-title.function_ {
+  color: #d2a8ff !important; /* Purple for functions */
+}
+
+.hljs-variable,
+.hljs-property,
+.hljs-attr {
+  color: #79c0ff !important; /* Bright blue for variables */
+}
+
+.hljs-number,
+.hljs-regexp,
+.hljs-symbol {
+  color: #79c0ff !important; /* Bright blue for numbers */
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #8b949e !important; /* Gray for comments */
+  font-style: italic;
+}
+
+.hljs-tag,
+.hljs-name {
+  color: #7ee787 !important; /* Green for HTML tags */
+}
+
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #ffa657 !important; /* Orange for CSS selectors */
+}
+
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #79c0ff !important; /* Blue for CSS pseudo */
+}
+
+.hljs-doctag,
+.hljs-meta {
+  color: #a5d6ff !important; /* Light blue for meta info */
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-addition {
+  color: #aff5b4 !important;
+  background-color: #033a16 !important;
+}
+
+.hljs-deletion {
+  color: #ffdcd7 !important;
+  background-color: #67060c !important;
 }
